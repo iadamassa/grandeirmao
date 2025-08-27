@@ -73,7 +73,7 @@ const Layout: React.FC = () => {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="flex items-center justify-between h-16 px-6">
-            <h1 className="text-xl font-bold text-white">AnomaliaMonitor</h1>
+            <h1 className="text-xl font-bold text-white">Web Grande Irmão</h1>
             <button
               onClick={() => setSidebarOpen(false)}
               className="lg:hidden text-white hover:text-gray-300"

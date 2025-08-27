@@ -47,7 +47,7 @@ const Login: React.FC = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 glass rounded-full mb-4">
             <AlertTriangle className="w-8 h-8 text-purple-400" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">AnomaliaMonitor</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Web Grande Irmão</h1>
           <p className="text-gray-300">Sistema de Monitoramento de Anomalias</p>
         </div>
 
