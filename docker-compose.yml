@@ -1,0 +1,142 @@
+version: '3.8'
+
+services:
+  # Infrastructure Services
+  redis:
+    image: redis:7-alpine
+    container_name: monitor-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - monitor-network
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: monitor-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - monitor-network
+
+  # Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: monitor-postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: anomalia_monitor
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - monitor-network
+
+  # Application Services
+  api:
+    build:
+      context: ./Painel/api
+      dockerfile: WebAPI/AnomaliaMonitor.WebAPI/Dockerfile
+    container_name: monitor-api
+    restart: unless-stopped
+    ports:
+      - "9000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=anomalia_monitor;Username=postgres;Password=postgres123
+      - Redis__ConnectionString=redis:6379
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__UserName=admin
+      - RabbitMQ__Password=admin123
+    volumes:
+      - api_data:/app/data
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    networks:
+      - monitor-network
+
+  crawler:
+    build:
+      context: ./crawler
+      dockerfile: Dockerfile
+    container_name: monitor-crawler
+    restart: unless-stopped
+    ports:
+      - "9001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - Redis__ConnectionString=redis:6379
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__UserName=admin
+      - RabbitMQ__Password=admin123
+    depends_on:
+      - redis
+      - rabbitmq
+    networks:
+      - monitor-network
+
+  findanomalie:
+    build:
+      context: ./findanomalie
+      dockerfile: Dockerfile
+    container_name: monitor-findanomalie
+    restart: unless-stopped
+    ports:
+      - "9002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - Redis__ConnectionString=redis:6379
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__UserName=admin
+      - RabbitMQ__Password=admin123
+    depends_on:
+      - redis
+      - rabbitmq
+    networks:
+      - monitor-network
+
+  frontend:
+    build:
+      context: ./Painel/frontend
+      dockerfile: Dockerfile
+    container_name: monitor-frontend
+    restart: unless-stopped
+    ports:
+      - "9003:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:9000
+    depends_on:
+      - api
+    networks:
+      - monitor-network
+
+volumes:
+  redis_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+  postgres_data:
+    driver: local
+  api_data:
+    driver: local
+
+networks:
+  monitor-network:
+    driver: bridge

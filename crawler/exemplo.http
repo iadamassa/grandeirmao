@@ -1,0 +1,37 @@
+### Solicitar crawling de uma URL específica
+# Use o ambiente "dev"
+@API_URL = {{API_URL}}
+
+POST {{API_URL}}/api/Crawler/crawl
+Content-Type: application/json
+
+{
+  "url": "https://contoseroticoscnn-com.sexogratis.page/2021/08/a-novinha-vagabundinha-de-8-anos-do-semaforo",
+  "siteLinkId": "123",
+  "subjectsToResearch": [
+    {
+      "id": 1,
+      "name": "Pedofilia",
+      "description": "Pedofilia é um transtorno sexual caracterizado pela atração sexual por crianças pré-púberes.",
+      "examples": ["ela ainda era uma criança", "nem havia desenvolvido o corpo"]
+    },
+    {
+      "id": 2,
+      "name": "Estupro",
+      "description": "Estupro é um crime que envolve a violação sexual de uma pessoa sem o seu consentimento.",
+      "examples": ["ela não queria", "ele a forçou"]
+    },
+    {
+      "id": 3,
+      "name": "Racismo",
+      "description": "Racismo é a discriminação ou preconceito contra pessoas com base em sua raça ou etnia.",
+      "examples": [""]
+    },
+    {
+      "id": 4,
+      "name": "Necrofilia",
+      "description": "Necrofilia é a atração sexual por cadáveres.",
+      "examples": [""]
+    }
+  ]
+}
