@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{7722FA4A-585A-4D9B-B3B9-63EEDBCC406C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnomaliaMonitor.Domain", "Domain\AnomaliaMonitor.Domain\AnomaliaMonitor.Domain.csproj", "{1260B90F-5390-4FA9-AB30-77D51FE4CD14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{2940ED14-3076-40E3-8845-EB5E782A74B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnomaliaMonitor.Application", "Application\AnomaliaMonitor.Application\AnomaliaMonitor.Application.csproj", "{05DADE3B-3079-4733-88A1-7FD84696FEBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{ACB70F6B-C31D-42A7-B8FC-68E18CF12B66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnomaliaMonitor.Infrastructure", "Infrastructure\AnomaliaMonitor.Infrastructure\AnomaliaMonitor.Infrastructure.csproj", "{867618B9-8BD4-46AD-87E6-CBC063DDE22A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{F8D0539D-9D2B-4F18-9DDB-3E47D7148AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnomaliaMonitor.WebAPI", "WebAPI\AnomaliaMonitor.WebAPI\AnomaliaMonitor.WebAPI.csproj", "{F6C6C0AF-BE7B-4CFF-9A3B-6918348BAE26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{9E164BA9-7CB5-4CF2-9EA5-513143A2791D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1260B90F-5390-4FA9-AB30-77D51FE4CD14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1260B90F-5390-4FA9-AB30-77D51FE4CD14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1260B90F-5390-4FA9-AB30-77D51FE4CD14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1260B90F-5390-4FA9-AB30-77D51FE4CD14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05DADE3B-3079-4733-88A1-7FD84696FEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05DADE3B-3079-4733-88A1-7FD84696FEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05DADE3B-3079-4733-88A1-7FD84696FEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05DADE3B-3079-4733-88A1-7FD84696FEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867618B9-8BD4-46AD-87E6-CBC063DDE22A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867618B9-8BD4-46AD-87E6-CBC063DDE22A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867618B9-8BD4-46AD-87E6-CBC063DDE22A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867618B9-8BD4-46AD-87E6-CBC063DDE22A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C6C0AF-BE7B-4CFF-9A3B-6918348BAE26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C6C0AF-BE7B-4CFF-9A3B-6918348BAE26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C6C0AF-BE7B-4CFF-9A3B-6918348BAE26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C6C0AF-BE7B-4CFF-9A3B-6918348BAE26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1260B90F-5390-4FA9-AB30-77D51FE4CD14} = {7722FA4A-585A-4D9B-B3B9-63EEDBCC406C}
+		{05DADE3B-3079-4733-88A1-7FD84696FEBD} = {2940ED14-3076-40E3-8845-EB5E782A74B9}
+		{867618B9-8BD4-46AD-87E6-CBC063DDE22A} = {ACB70F6B-C31D-42A7-B8FC-68E18CF12B66}
+		{F6C6C0AF-BE7B-4CFF-9A3B-6918348BAE26} = {F8D0539D-9D2B-4F18-9DDB-3E47D7148AD7}
+	EndGlobalSection
+EndGlobal

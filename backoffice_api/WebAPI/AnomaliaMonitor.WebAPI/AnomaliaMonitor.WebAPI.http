@@ -1,0 +1,6 @@
+@AnomaliaMonitor.WebAPI_HostAddress = http://localhost:5267
+
+GET {{AnomaliaMonitor.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
