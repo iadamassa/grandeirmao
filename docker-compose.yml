@@ -47,7 +47,7 @@ services:
   # Application Services
   api:
     build:
-      context: ./Painel/api
+      context: ./backoffice_api
       dockerfile: WebAPI/AnomaliaMonitor.WebAPI/Dockerfile
     container_name: monitor-api
     restart: unless-stopped
@@ -114,7 +114,7 @@ services:
 
   frontend:
     build:
-      context: ./Painel/frontend
+      context: ./backoffice_frontend
       dockerfile: Dockerfile
     container_name: monitor-frontend
     restart: unless-stopped
